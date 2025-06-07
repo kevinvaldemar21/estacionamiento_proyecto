@@ -19,7 +19,11 @@ const server = express();
 
 // Configurar CORS
 server.use(cors({
-    origin: "http://localhost:5173", // Permitir solicitudes desde el frontend
+    origin: [
+        "https://estacionamiento-proyecto-1.onrender.com", // tu frontend en Render
+        "http://localhost:5173"             // para desarrollo local (opcional)
+    ],
+    credentials: true // solo si usas cookies/autenticación
 }));
 server.use(express.json());
 server.use('/api/clients', router); // Cambiado a "clients" para reflejar los datos actuales
