@@ -1,0 +1,27 @@
+services:
+  client:
+    build: ./Client
+    ports:
+      - "5173:80"
+    restart: unless-stopped
+    depends_on:
+      - server
+    networks:
+      - app-network
+
+  server:
+    build:
+      context: ./Server
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file: ./Server/.env
+    environment:
+      NODE_ENV: development
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
