@@ -23,7 +23,7 @@ const ClientForm: React.FC = () => {
   const handlePayment = async (ticket: string) => {
     try {
         // Enviar solicitud al backend para actualizar el estado de pago
-        const response = await fetch(`https://estacionamiento-proyecto-izhs.onrender.com/api/clients/${ticket}`, {
+        const response = await fetch(`https://estacionamiento-proyecto-oe8y.onrender.com/api/clients/${ticket}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -71,7 +71,7 @@ const ClientForm: React.FC = () => {
 
             try {
                 // Enviar datos al servidor
-                const response = await fetch("https://estacionamiento-proyecto-izhs.onrender.com/api/clients", {
+                const response = await fetch("https://estacionamiento-proyecto-oe8y.onrender.com/api/clients", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
